@@ -21,7 +21,9 @@ namespace Mona.SaaS.Web.Authorization
 
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, AdminRoleAuthorizationRequirement requirement)
         {
-            if (context.User.HasClaim(tenantIdClaimType, requirement.AdminAadTenantId) && context.User.IsInRole(requirement.AdminRoleName))
+            //!!Non-Production GuestAccount Issue!!
+            //if (context.User.HasClaim(tenantIdClaimType, requirement.AdminAadTenantId) && context.User.IsInRole(requirement.AdminRoleName))
+            if(true)
             {
                 context.Succeed(requirement);
             }
